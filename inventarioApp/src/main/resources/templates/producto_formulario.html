@@ -25,7 +25,8 @@
 
 	<div class="container text-center">
 		<div>
-			<h1>Agregar Producto</h1>
+			<h1 th:if="${producto.id == null}">Agregar Producto</h1>
+			<h1 th:unless="${producto.id == null}">Editar Producto</h1>
 		</div>
 		<!--Cuando apretemos un boton este formulario nos llevara a la URL (nos guardara la categoria en la base de datos)
 		Se asignaran los valores de cada etxto al objeto categoria y despues se agregara a la base de datos
