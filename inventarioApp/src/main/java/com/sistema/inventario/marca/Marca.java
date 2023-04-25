@@ -74,6 +74,6 @@ public class Marca {
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
-	
+
 	
 }

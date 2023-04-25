@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.sistema.inventario.categoria.Categoria;
 import com.sistema.inventario.categoria.CategoriaRepository;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @Controller
 public class ProductoController {
 
@@ -30,7 +32,19 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/productos/guardar")
-	public String guardarProducto(Producto producto) {
+	public String guardarProducto(Producto producto, HttpServletRequest request) {
+		String[] detallesIDs = request.getParameterValues("detallesID");
+		String[] detallesNombre = request.getParameterValues("detallesNombre");
+		String[] detallesValores = request.getParameterValues("detallesValor");
+		
+		for(int i=0; i<detallesNombre.length; i++) {
+			if(detallesIDs != null && detallesIDs.length > 0) {
+				producto.setDetalle(Integer.valueOf(detallesIDs[i]), detallesNombre[i], detallesValores[i]);
+			}else {
+				producto.agregarDetalles(detallesNombre[i], detallesValores[i]);
+			}
+		}
+		
 		productoRepository.save(producto);
 		//Se redigira a la pagina de inicio
 		return "redirect:/";
