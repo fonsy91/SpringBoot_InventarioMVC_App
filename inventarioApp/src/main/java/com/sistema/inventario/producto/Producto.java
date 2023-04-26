@@ -62,8 +62,6 @@ public class Producto {
 		this.nombre = nombre;
 	}
 
-
-
 	//Getters anda Setters
 	public Integer getId() {
 		return id;
