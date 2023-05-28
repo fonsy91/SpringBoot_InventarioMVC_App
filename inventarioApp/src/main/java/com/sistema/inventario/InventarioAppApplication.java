@@ -10,7 +10,4 @@ public class InventarioAppApplication {
 		SpringApplication.run(InventarioAppApplication.class, args);
 	}
 
-	//Aplicacion de relaciones entre tablas usando Thymeleaf, MySQL, hibernate y Junit 
-	//https://www.youtube.com/watch?v=yZXjA4wLR78&t=340s&ab_channel=LaTecnolog%C3%ADaAvanza
-	//Minuto 2:58:53
 }
